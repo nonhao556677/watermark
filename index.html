@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เพิ่มลายน้ำให้ PDF ออนไลน์ - Watermark PDF</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">PDF Watermarker</a>
+        </div>
+    </nav>
+    <main class="container my-5">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-primary text-white text-center">
+                <h1 class="h3 mb-0">เครื่องมือเพิ่มลายน้ำให้ PDF</h1>
+            </div>
+            <div class="card-body p-4">
+                <form id="watermarkForm">
+                    <div class="mb-4">
+                        <label for="pdfFile" class="form-label fw-bold">1. เลือกไฟล์ PDF ของคุณ</label>
+                        <input type="file" class="form-control" id="pdfFile" accept=".pdf" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="watermarkText" class="form-label fw-bold">2. ข้อความลายน้ำ</label>
+                        <input type="text" class="form-control" id="watermarkText" value="เอกสารลับ" required>
+                    </div>
+                    <hr class="my-4">
+                    <p class="fw-bold mb-3">3. ตั้งค่าลายน้ำ</p>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="fontSize" class="form-label">ขนาดตัวอักษร</label>
+                            <input type="number" class="form-control" id="fontSize" value="50">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="opacity" class="form-label">ความทึบ (0.1 - 1.0)</label>
+                            <input type="range" class="form-range" id="opacity" min="0.1" max="1" step="0.1" value="0.5">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="color" class="form-label">สีตัวอักษร</label>
+                            <input type="color" class="form-control form-control-color w-100" id="color" value="#ff0000" title="เลือกสี">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="position" class="form-label">ตำแหน่ง</label>
+                            <select class="form-select" id="position">
+                                <option value="center">กึ่งกลาง (ทแยงมุม)</option>
+                                <option value="topLeft">บนซ้าย</option>
+                                <option value="topCenter">บนกลาง</option>
+                                <option value="topRight">บนขวา</option>
+                                <option value="middleLeft">กลางซ้าย</option>
+                                <option value="middleRight">กลางขวา</option>
+                                <option value="bottomLeft">ล่างซ้าย</option>
+                                <option value="bottomCenter">ล่างกลาง</option>
+                                <option value="bottomRight">ล่างขวา</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg" id="submitButton">
+                            <span id="buttonText">เพิ่มลายน้ำและดาวน์โหลด</span>
+                            <span class="spinner-border spinner-border-sm d-none" id="spinner" role="status" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="text-center text-muted py-4 mt-auto">
+        <p>&copy; 2025 - สร้างโดย Gemini</p>
+    </footer>
+
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.umd.min.js"></script>
+    
+    <script src="https://unpkg.com/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
